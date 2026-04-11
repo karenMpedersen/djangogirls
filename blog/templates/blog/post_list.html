@@ -1,39 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Ren Writes </title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    </head>
-    
-    <body>
-        <header>
-            <h1><a href="/"> Ren Writes</a></h1>
-        </header>
+{% extends 'blog/base.html' %}
 
-        <article>
-            <time> published: April 11th 2026 </time>
-            <h2><a href="">A scientist moves across the ocean </a></h2>
-        </article>
-
-        <article>
-            <time>published: April 11th 2026, 20:25</time>
-            <h2><a href="">Publications</a></h2>
-            <p> list of publications and links to full articles here</p>
-        </article>
-
-        <article>
-            <time>published April 11th 2026, 20:25</time>
-            <h2><a href="">Conference Presentations</a></h2>
-            <p> list of conferance presentations here </p>
-        </article>
-        {% for post in posts %}
-        <article>
-            <time>published: {{post.published_date}}</time>
-            <h2><a href="">{{post.title}}</a></h2>
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
-        {% endfor %}
-        
-        <p> Next World Domination!!!!</p>
-     </body>
-</html>
+    {% endfor %}
+{% endblock %}
