@@ -25,7 +25,14 @@
             <h2><a href="">Conference Presentations</a></h2>
             <p> list of conferance presentations here </p>
         </article>
+        {% for post in posts %}
+        <article>
+            <time>published: {{post.published_date}}</time>
+            <h2><a href="">{{post.title}}</a></h2>
+            <p>{{ post.text|linbreaksbr }}</p>
+        </article>
+        {% endfor %}
         
         <p> Next World Domination!!!!</p>
-    </body>
+     </body>
 </html>
